@@ -1,0 +1,25 @@
+version: "0.1"
+services:
+  database:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data:/var/lib/mysql
+        #ports:
+        #- 3306:3306
+
+  lychee-aarch64:
+    image: lsioarmhf/lychee-aarch64
+    # restart: always
+    links:
+      - database
+    ports:
+      - 2080:80
+    volumes:
+      - ./config:/config
+      - ./pictures:/pictures
+    environment:
+      - PGID=1000
+      - PUID=1000
