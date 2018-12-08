@@ -12,7 +12,7 @@ services:
 
   lychee-aarch64:
     image: lsioarmhf/lychee-aarch64
-    # restart: always
+    restart: always
     links:
       - database
     ports:
