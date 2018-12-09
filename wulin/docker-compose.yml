@@ -1,0 +1,72 @@
+version: '3.1'
+
+services:
+  database:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./database/zmwm_proc.sql:/root/zmwm_proc.sql
+      - ./database/zmwm_table.sql:/root/zmwm_table.sql
+    # networks:
+    #   - wulin_default
+    ports:
+      - 3306:3306
+
+  wulin:
+    build: wulin
+    depends_on:
+      - database
+    # restart: always
+    # networks:
+    #   - wulin_default
+    #   - host
+    # ports:
+    #   - 36909:36909
+    #   - 29000:29000
+    #   - 29001:29001
+    #   - 29100:29100
+    #   - 29101:29101
+    #   - 29200:29200
+    #   - 29201:29201
+    #   - 29300:29300
+    #   - 29301:29301
+    #   - 29400:29400
+    #   - 29401:29401
+    #   - 29702:29702
+    #   - 29712:29712
+    #   - 46602:46602
+    #   - 11100:11100
+    #   - 9292:9292
+    # links:
+    #   - database
+    network_mode: "host"
+    extra_hosts:
+      - "database:127.0.0.1"
+      - "PW-Server:127.0.0.1"
+      - "aumanager:127.0.0.1"
+      - "manager:127.0.0.1"
+      - "link1:127.0.0.1"
+      - "game1:127.0.0.1"
+      - "game2:127.0.0.1"
+      - "delivery:127.0.0.1"
+      - "backup:127.0.0.1"
+      - "auth:127.0.0.1"
+      - "audb:127.0.0.1"
+      - "gmserver:127.0.0.1"
+      - "wulin:127.0.0.1"
+
+    volumes:
+      # - ./server/hosts:/etc/hosts
+      - ./server/authd.conf:/etc/authd.conf
+      - ./server/libtask.so:/lib/libtask.so
+      - ./server/libskill.so:/lib/libskill.so
+      - ./server/server:/root
+    command: ["/root/my"]
+
+# networks:
+#   wulin_default:
+#   host:
+#     driver: host
