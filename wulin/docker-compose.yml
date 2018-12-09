@@ -16,7 +16,7 @@ services:
       - 3306:3306
 
   wulin:
-    build: wulin
+    build: Dockerfile
     depends_on:
       - database
     # restart: always
