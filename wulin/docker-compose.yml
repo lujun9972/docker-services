@@ -10,16 +10,16 @@ services:
       - ./data:/var/lib/mysql
       - ./database/zmwm_proc.sql:/root/zmwm_proc.sql
       - ./database/zmwm_table.sql:/root/zmwm_table.sql
-    networks:
-      - default
+    # networks:
+    #   - default
     ports:
-      - 13306:3306
+      - 3306:3306
 
   wulin:
     build: wulin
     depends_on:
       - database
-    restart: always
+    # restart: always
     # networks:
     #   - default
     ports:
@@ -50,8 +50,8 @@ services:
       # - "11100:11100/udp"
       # - "11101:11101"
       # - "37306:37306/udp"
-    # links:
-    #   - database
+    links:
+      - database
     extra_hosts:
       - "PW-Server:127.0.0.1"
       - "aumanager:127.0.0.1"
@@ -74,5 +74,5 @@ services:
       - ./server/server:/root
     command: ["/root/my"]
 
-networks:
-  default:
+# networks:
+#   default:
