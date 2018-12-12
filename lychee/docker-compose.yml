@@ -17,6 +17,7 @@ services:
       - database
     ports:
       - 2080:80
+      - 2443:443
     volumes:
       - ./config:/config
       - ./pictures:/pictures
