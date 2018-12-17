@@ -1,8 +1,8 @@
 wulin/data
 wulin/server
 3.aria.arm64/Downloads/
-lychee/config/
-lychee/data/
-lychee/pictures/
-nextcloud/appdata/
-nextcloud/data/
+2.lychee.arm64/config/
+2.lychee.arm64/data/
+2.lychee.arm64/pictures/
+1.nextcloud.arm64/appdata/
+1.nextcloud.arm64/data/
