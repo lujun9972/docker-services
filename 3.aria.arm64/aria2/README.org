@@ -1,0 +1,7 @@
+* build
+
+docker build -t lujun9972/aria2-aarch64.docker .
+
+* run
+
+docker run -d --name aria2-service -v /media:/media -v /media/Downloads:/media/Downloads -p 6800:6800 -p 51413:51413 --restart=always lujun9972/aria2-aarch64.docker

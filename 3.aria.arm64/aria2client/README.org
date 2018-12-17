@@ -1,0 +1,10 @@
+* build
+
+docker build -t lujun9972/$(basename $(pwd)) .
+
+* run
+
+docker run -it -p 10080:80 --name aria2-client --restart=always -d lujun9972/aria2-client-aarch64.docker
+
+Visiting:
+http://192.168.1.9:10080/yaaw

@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  aria2:
+    build: aria2
+    restart: always
+    volumes:
+      - ./aria2/aria2.conf:/etc/aria2.conf
+      - ./Downloads:/media/Downloads
+    ports:
+      - 6800:6800
+
+  aria2client:
+    build: aria2client
+    depends_on:
+      - aria2
+    ports:
+      - 3080:80
+    links:
+      - aria2
+# networks:
+#   default:
