@@ -15,5 +15,5 @@ services:
       - 9000:9000
     links:
       - mongo
-    command: "/bin/bash"
+    # command: "/bin/bash"
 
