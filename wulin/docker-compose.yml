@@ -19,7 +19,7 @@ services:
     build: Dockerfile
     depends_on:
       - database
-    # restart: always
+    restart: always
     # networks:
     #   - default
     ports:
