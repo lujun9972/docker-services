@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # 倒入初始数据
 if ! echo "show dbs" |mongo --host mongo|grep leanote
