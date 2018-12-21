@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 倒入初始数据
-if echo "show dbs" |mongo|grep leanote
-   then
-       mongorestore -h mongo -d leanote --dir /root/leanote/mongodb_backup/leanote_install_data/
+if ! echo "show dbs" |mongo --host mongo|grep leanote
+then
+	mongorestore -h mongo -d leanote --dir /root/leanote/mongodb_backup/leanote_install_data/
 fi
 /root/leanote/bin/run.sh
 # # Copy tar data to `/data/` path
