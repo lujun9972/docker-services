@@ -8,4 +8,4 @@ RUN tar -xzf /root/leanote.tar.gz -C /root/ && \
 	    chmod a+x /root/leanote/bin/run.sh
 EXPOSE 9000
 ENTRYPOINT
-CMD /root/run.sh
+CMD /bin/bash /root/run.sh
