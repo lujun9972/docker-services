@@ -7,7 +7,7 @@ services:
     #   MONGO_INITDB_ROOT_USERNAME: root
     #   MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      - .data:/data
+      - ./data:/data
 
   leanote:
     build: leanote
