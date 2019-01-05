@@ -3,6 +3,7 @@ version: "0.1"
 services:
   mongo:
     image: mongo
+    restart: always
     # environment:
     #   MONGO_INITDB_ROOT_USERNAME: root
     #   MONGO_INITDB_ROOT_PASSWORD: root
@@ -11,6 +12,7 @@ services:
 
   leanote:
     build: leanote
+    restart: always
     ports:
       - 9000:9000
     links:

@@ -12,6 +12,7 @@ services:
 
   aria2client:
     build: aria2client
+    restart: always
     depends_on:
       - aria2
     ports:
