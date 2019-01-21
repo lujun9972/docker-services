@@ -1,0 +1,24 @@
+#+TITLE: README
+#+AUTHOR: lujun9972
+#+TAGS: SphereServer
+#+DATE: [2019-01-21 一 19:22]
+#+LANGUAGE:  zh-CN
+#+OPTIONS:  H:6 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:nil
+
+1. 将UO客户端目录中的下列文件拷贝到 =Sphere/mul= 目录下
+   
+   #+BEGIN_SRC shell
+     cp multi.idx hues.mul map* multi.mul statics* tiledata.mul staidx* Sphere/mul
+   #+END_SRC
+
+2. 构建
+   
+   #+BEGIN_SRC shell
+     docker build -t sphere .
+   #+END_SRC
+
+3. 运行
+   
+   #+BEGIN_SRC shell
+     docker run -it --rm -v $(pwd)/sphere.ini:/Sphere/sphere.ini -v $(pwd)/mul:/Sphere/mul -p 2593:2593 sphere
+   #+END_SRC
