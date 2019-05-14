@@ -5,11 +5,11 @@ services:
     image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=zmwm
     volumes:
       - ./data:/var/lib/mysql
-      - ./database/zmwm_proc.sql:/root/zmwm_proc.sql
-      - ./database/zmwm_table.sql:/root/zmwm_table.sql
+      - ./database/:/docker-entrypoint-initdb.d/
     # networks:
     #   - default
     ports:
