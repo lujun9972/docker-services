@@ -1,0 +1,29 @@
+version: "0.1"
+services:
+  database:
+    image: mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=owa
+    volumes:
+      - ./data:/var/lib/mysql
+
+  php:
+    build: OWA
+    restart: always
+    links:
+      - database
+    ports:
+      - 7080:80
+    # volumes:
+    #   - ./config:/config
+    #   - ./pictures:/pictures
+    # environment:
+    #   - PGID=1000
+    #   - PUID=1000
+
+networks:
+    # 配置docker network
+    app_net:
+        driver: bridge
